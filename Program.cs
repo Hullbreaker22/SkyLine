@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -33,9 +32,11 @@ namespace SkyLine
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-          
+
 
             builder.Services.AddScoped<IRepository<UserOTP>, Repository<UserOTP>>();
+            builder.Services.AddScoped<IRepository<Flight>, Repository<Flight>>();
+            builder.Services.AddScoped<IRepository<FlightSegment>, Repository<FlightSegment>>();
             builder.Services.AddScoped<IDBInitializer, DBInitializer>();
             builder.Services.AddTransient<IEmailSender, EmailSender>();
 
